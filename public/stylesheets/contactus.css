@@ -1,0 +1,214 @@
+/******************
+general section
+******************
+body{
+	font-family: Josefin Sans, sans-serif;/* helps with the sticky footer */
+}
+
+.body {
+  flex: 1; /* also helps with the sticky footer */
+}
+
+/*****************
+general section ending
+*****************/
+
+@import url(https://fonts.googleapis.com/css?family=Lato:400,300);
+body {
+  background-color: rgb(245, 245, 245);
+  max-height: 830px;
+  min-height: 100vh;
+  font-family: Josefin Sans, sans-serif;
+  font-size: 16px;
+}
+
+.jumbotron {
+  background-color: #0B5345;
+  color: #FFF;
+  border-radius: 0px;
+}
+
+.jumbotron-sm {
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+.jumbotron small {
+  color: #FFF;
+}
+
+.header {
+  height: 150px;
+}
+
+.card {
+  position: relative;
+  top: -185px;
+  margin-bottom: -150px;
+}
+
+.cardStyle {
+  position: relative;
+  background-color: #fff;
+  border: 1px solid rgb(221, 221, 221);
+  margin-top: 20px;
+  padding: 20px;
+}
+
+.cardStyle:before {
+  position: absolute;
+  height: 100%;
+  width: 30px;
+  top: 0;
+  left: -30px;
+  content: " ";
+  display: block;
+  /* z-index: 200; */
+
+  background: url("http://al2015.gatesnotesazure.com/assets/media/images/top-shadow-left.png") no-repeat;
+}
+
+.cardStyle:after {
+  position: absolute;
+  height: 100%;
+  width: 30px;
+  top: 0;
+  right: -30px;
+  content: " ";
+  display: block;
+  /* z-index: 200; */
+
+  background: url("http://al2015.gatesnotesazure.com/assets/media/images/top-shadow-right.png") no-repeat;
+}
+
+.h1 {
+  color: #fff;
+  font-size: 33px;
+}
+
+.h1 small {
+  color: #ddd;
+  font-size: 25px;
+}
+
+.h1,
+.h3,
+small,
+label,
+.modal-title {
+  font-family: Lato;
+  font-weight: 300;
+}
+
+label {
+  color: #666;
+  font-weight: 400;
+}
+
+.h1 .fa-envelope {
+  font-size: 35px;
+}
+
+.btn-success {
+  padding: 10px 25px;
+  color: #fff;
+  background-color: #0B5345;
+  border-color: #0B5345;
+}
+
+.btn-success:hover {
+  padding: 10px 25px;
+  color: #fff;
+  background-color: #0F725F;
+  border-color: #0F725F;
+}
+
+.btn-success:active {
+  padding: 10px 25px;
+  color: #fff;
+  background-color: #0B5345;
+  border-color: #0B5345;
+}
+
+a{
+	color: #fff;
+}
+
+a:hover,
+a:focus{
+	text-decoration: none;
+	color: #fff;
+}
+
+
+/********************
+  the footer
+********************/
+
+  .main-footer{
+    padding-bottom: 10px;
+  }
+
+	.foot2{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: flex-end;
+    justify-content: flex-end;
+    align-content: center;
+    text-decoration: none;
+    list-style: none;
+    font-size: 15px;
+    padding: 0 30px 0;
+  }
+
+	footer{
+		width: cover;
+	}
+
+  footer > div > span > a {
+  	color: black;
+		padding-left: 25px;
+  }
+
+	footer > div > span > a:hover {
+  	color: black;
+  }
+/* footer ending */
+
+/**************
+media querry
+**************/
+@media screen and (min-width: 768px){
+
+	.body h1,
+	.body .h1 {
+		font-size: 60px;
+	}
+
+	h4{
+		color: black;
+		font-size: 17px;
+	}
+
+	p{
+		color: #333;
+		font-size: 18px;
+	}
+
+  .h1 {
+    color: #fff;
+    font-size: 50px;
+  }
+
+  .foot2{
+    list-style: none;
+    font-size: 17px;
+    padding: 0 100px 0;
+  }
+
+  .card {
+    margin-bottom: -190px;
+  }
+
+}

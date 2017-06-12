@@ -1,2 +1,36 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<!DOCTYPE html>
+<html lang="en-us">
+		<head>
+		</head>
+<body>
+
+
+
+	<section id="home" class="body">
+		<div class="container">
+			<div class="header-info">
+				<h1><span class="space">spacelist</span> <i class="fa fa-map-marker" aria-hidden="true"></i></h1>
+
+				<!-- changing text -->
+				<div class="console"></div>
+				  <div class="text"><!--text goes here-->
+				    <strong class="text change-text"></strong>.
+				</div>
+
+
+				<form class="" method="post" action="/search">
+					<div class="search form-group">
+					  <input type="text" id="searchBox" name="searchText" class="search-field search__input" placeholder="Search" autoFocus autocomplete="off"/>
+					  <button class="fa fa-search search__button" type="submit"></button>
+						<ul id="searchResults" class="term-list hidden"></ul>
+					</div>
+				</form>
+
+			</div>
+		</div>
+	</section>
+
+
+
+</body>
+</html>

@@ -1,10 +1,345 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>{{title}}</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>spacecurb</title>
+    <!-- Load fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Abel|Alegreya|Amatic+SC|Architects+Daughter|Barrio|Cabin|Dancing+Script|Dosis|Exo+2|Gloria+Hallelujah|Inconsolata|Josefin+Sans|Karla|Source+Code+Pro|Yanone+Kaffeesatz" rel="stylesheet" type='text/css'>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" type="text/css" href="/stylesheets/normalize.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/font-awesome.css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/autoSuggest.css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/component.css" />
+    <!--style -->
+    <script src="/javascripts/modernizr.js"></script> <!-- Modernizr -->
+
   </head>
   <body>
+    <header class="main-header">
+      <a href="" class="menu-toggle" id="nav-expander"><i class="fa fa-bars"></i></a>
+      <!-- Offsite navigation -->
+      <nav class="menu">
+        <a href="#" class="close"> <i class="fa fa-close"></i></a>
+        <h3> <a href="index.html">spacelist</a> </h3>
+        <h5><a data-scroll data-toggle="modal" data-target="#myModa3" class="btn button two">Add Property</a></h5>
+        <ul class="nav">
+          <li class="cl-effect-1"><a data-scroll href="contactus.html">Contact us</a></li>
+          <li class="cl-effect-1"><a data-scroll data-toggle="modal" data-target="#myModa4">About</a></li>
+          <li class="cl-effect-1"><a data-scroll href="#portfolio">Safety</a></li>
+          <li class="cl-effect-1"><a data-scroll href="#terms">Terms</a></li>
+          <li class="cl-effect-1"><a data-scroll href="#privacy">Privacy</a></li>
+        </ul>
+      </nav>
+    <div class="dropdown">
+      <img src="assets/img/default-avatar.png" alt="photograph of potential user"  class="profile-photo dropdown-toggle" data-toggle="dropdown">
+
+      <ul class="dropdown-menu dropdown-menu-right">
+            <li role="presentation"><a class="" data-toggle="modal" data-target="#myModal" role="menuitem" tabindex="-1" href="#">Add a Property</a></li>
+
+            <li role="presentation"><a class="" data-toggle="modal" data-target="#myModa2" role="menuitem" tabindex="-1" href="#">Sign in</a></li>
+
+            {{!--<li role="presentation"><a class="" data-toggle="modal" data-target="#myModal" role="menuitem" tabindex="-1" href="#">Sign up here</a></li>--}}
+
+            <li role="presentation" class="divider"></li>
+
+            <li role="presentation"><a class="" data-toggle="modal" data-target="#myModal" role="menuitem" tabindex="-1" href="#">Sign up </a></li>
+      </ul>
+    </div>
+
+    </header><!--/.main-header-->
+
     {{{body}}}
+
+    <!-- Modal Core -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</div>
+          Sign Up with Spacelist
+        </div>
+        <div class="modal-body">
+          <!-- Tabs on Plain Card -->
+              <div class="card card-nav-tabs card-plain">
+                <div class="header header-danger">
+                  <!-- colors: "header-primary", "header-info", "header-success", "header-warning", "header-danger" -->
+                  <div class="nav-tabs-navigation">
+                    <div class="nav-tabs-wrapper">
+                    </div>
+                  </div>
+                </div>
+                <div class="content">
+                  <div class="tab-content text-center">
+                    <div class="tab-pane active" id="signup">
+                      <form>
+                        <div class="social">
+                          <a id="google_login" class="circle google" href="/auth/google_oauth2">
+                              <i class="fa fa-google-plus fa-fw"></i>
+                          </a>
+                          <a id="facebook_login" class="circle facebook" href="/auth/facebook">
+                              <i class="fa fa-facebook fa-fw"></i>
+                          </a>
+                        </div>
+                        <div class="division">
+                            <div class="line l"></div>
+                              <span>or</span>
+                            <div class="line r"></div>
+                        </div>
+                        <input placeholder="Username" type="text" required="true">
+                        <input placeholder="Email" type="email" required="">
+                        <input placeholder="Password" type="password" minlength="6" id="password" name="password" required="required">
+                        <input placeholder="Confirm Password" type="password" minlength="6" id="compare_password" name="comparepassword" compareTo="password" required="required">
+                        <button href="#photo" data-toggle="tab">Next</button>
+                    </div>
+                    <div class="tab-pane" id="photo">
+                      <div class="content">
+                        <div class="picture-container">
+                           <div class="picture">
+                            <img src="assets/img/default-avatar.png" class="picture-src" id="wizardPicturePreview" title=""/>
+                                 <input type="file" id="wizard-picture" name="file">
+                           </div>
+                        </div>
+                      </div>
+
+                      <div class="linebut">
+                      <button href="#signup" data-toggle="tab">Back</button><button>Submit</button>
+                      </div>
+
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- End Tabs on plain Card -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Core 2 -->
+  <div class="modal fade" id="myModa2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</div>
+        Sign in with Spacelist
+      </div>
+      <div class="modal-body">
+        <!-- Tabs on Plain Card -->
+            <div class="card card-nav-tabs card-plain">
+              <div class="header header-danger">
+                <div class="nav-tabs-navigation">
+                  <div class="nav-tabs-wrapper">
+                  </div>
+                </div>
+              </div>
+              <div class="content">
+                <div class="tab-content text-center">
+                  <div class="tab-pane active" id="signin">
+                    <form>
+                      <div class="social">
+                        <a id="google_login" class="circle google" href="/auth/google_oauth2">
+                            <i class="fa fa-google-plus fa-fw"></i>
+                        </a>
+                        <a id="facebook_login" class="circle facebook" href="/auth/facebook">
+                            <i class="fa fa-facebook fa-fw"></i>
+                        </a>
+                      </div>
+                      <div class="division">
+                          <div class="line l"></div>
+                            <span>or</span>
+                          <div class="line r"></div>
+                      </div>
+                      <input placeholder="Email" type="email" required="">
+                      <input placeholder="Password" type="password" id="password" name="password" required="required">
+                      <div class="linebutt">
+                        <button>Sign in</button>
+                      </div>
+                      <div class="forge">
+                        <a href="#forgot" data-toggle="tab">Forgot password?</a>
+                      </div>
+                    </form>
+                  </div>
+
+                  <div class="tab-pane" id="forgot">
+                    <form>
+                      <p>Type in your Email to get a new password</p>
+                      <input placeholder="Email" type="email" required="">
+                      <div class="linebutt">
+                        <button>Submit</button>
+                      </div>
+                      <div class="bak">
+                        <a href="#signin" data-toggle="tab">< Back to Sign in</a>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- End Tabs on plain Card -->
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <!--  modal core 2 ending    -->
+
+  <!-- Modal Core 3 -->
+  <div class="modal fade" id="myModa3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</div>
+        Add Property
+      </div>
+      <div class="modal-body">
+        <!-- Tabs on Plain Card -->
+            <div class="card card-nav-tabs card-plain">
+              <div class="header header-danger">
+                <div class="nav-tabs-navigation">
+                  <div class="nav-tabs-wrapper">
+                  </div>
+                </div>
+              </div>
+              <div class="content">
+                <div class="tab-content text-center">
+                  <div class="tab-pane active" id="addproperty">
+                    <div class="showboyy">
+                      <p>Select the type of property do you want to add?</p>
+                    </div>
+                      <div class="showboy">
+                        <button href="#apartment" data-toggle="tab">Apartment</button>
+
+                        <button href="#house" data-toggle="tab">House</button>
+
+                        <a href="rentRoom.html"><button>Room</button></a>
+
+                        <a href="rentHostel.html"><button>Hostel</button></a>
+
+                        <button href="#sale" data-toggle="tab">Property For Sale</button>
+                      </div>
+                  </div>
+
+                  <div class="tab-pane" id="house">
+                    <div class="showboyy">
+                      <p>Is this House for Rent or Sale?</p>
+                    </div>
+                      <div class="showboy">
+                        <a href="rentHouse.html"><button>Rent</button></a>
+
+                        <a href="sellHouse.html"><button>Sale</button></a>
+                      </div>
+                      <div class="bak">
+                        <a href="#addproperty" data-toggle="tab">< Back to Add property</a>
+                      </div>
+                  </div>
+
+                  <div class="tab-pane" id="apartment">
+                    <div class="showboyy">
+                      <p>Is this Apartment for Rent or Sale?</p>
+                    </div>
+                      <div class="showboy">
+                        <a href="rentApartment.html"><button>Rent</button></a>
+
+                        <a href="sellApartment.html"><button>Sale</button></a>
+                      </div>
+                      <div class="bak">
+                        <a href="#addproperty" data-toggle="tab">< Back to Add property</a>
+                      </div>
+                  </div>
+
+                  <div class="tab-pane" id="sale">
+                    <div class="showboyy">
+                      <p>What type of property do you want to sell?</p>
+                    </div>
+                    <div class="showboy">
+                      <a href="sellApartment.html"><button>Apartment</button></a>
+
+                      <a href="sellHouse.html"><button>House</button></a>
+                    </div>
+                      <div class="bak">
+                        <a href="#addproperty" data-toggle="tab">< Back to Add property</a>
+                      </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <!-- End Tabs on plain Card -->
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <!--  modal core 3 ending    -->
+
+  <!-- Modal Core 4 -->
+  <div class="modal fade" id="myModa4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</div>
+        About Spacelist
+      </div>
+      <div class="modal-body">
+        <!-- Tabs on Plain Card -->
+            <div class="card card-nav-tabs card-plain">
+              <div class="header header-danger">
+                <div class="nav-tabs-navigation">
+                  <div class="nav-tabs-wrapper">
+                  </div>
+                </div>
+              </div>
+              <div class="content">
+                <div class="tab-content text-center">
+                  <div class="tab-pane active" id="aboutUs">
+
+                  <!-- content goes here -->
+
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- End Tabs on plain Card -->
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <!--  modal core 4 ending    -->
+
+
+    <!-- Footer start -->
+  	<footer class="main-footer">
+  		<div class="foot2">
+  			<span>&copy; spacelist 2017</span>
+  		</div>
+  	</footer>
+  		<!-- Footer end  -->
+
+
+    <!-- Contact section start -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+
+    <script type="text/javascript" src="/javascripts/img.js"></script>
+
+    <script type="text/javascript" src="/javascripts/autoSuggest.js"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="/javascripts/smooth-scroll.js"></script>
+
+  <!--	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script> -->
+
+    <!-- Load custom js for theme -->
+    <script type="text/javascript" src="/javascripts/app.js"></script>
+
   </body>
 </html>

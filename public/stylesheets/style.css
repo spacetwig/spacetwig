@@ -1,8 +1,753 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+/******************
+general section
+******************/
+body{
+	font-family: Josefin Sans, sans-serif;
+	font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* helps with the sticky footer */
+  background-color: #F5F5F5;
 }
 
-a {
-  color: #00B7FF;
+.body {
+  flex: 1; /* also helps with the sticky footer */
+}
+
+p, input, textarea{
+	font-family: Josefin Sans, serif;
+}
+
+/*****************
+general section ending
+*****************/
+
+/*****************
+header section
+*****************/
+.main-header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/*************
+nav bar inside the header
+*************/
+.menu-toggle{
+	font-size: 30px;
+	color: #56863C; /*** this controls the color of the burger     color      ***/
+}
+
+.menu{
+  position: relative;
+	width: 300px;
+	display: block;
+	background: black;/* controls the color of the nav bar*/
+	height: 100%;
+	top: 0;
+	left:-300px; /*was originally t right when the nav bar was on the right side*/
+	position: fixed;
+	z-index: 100;
+	text-align: center;
+	transition: left 0.4s; /** default on the right **/
+  overflow-y: auto; /* makes the expanding nav scrollable */
+}
+
+.menu.nav-expanded{
+	left: 0; /* was at right before, for nav bar to expand from left */
+}
+
+.menu .close{
+	color: #fff;
+	font-size: 30px;
+	margin-right: 10px;
+	margin-top:10px;
+}
+
+.menu h3{
+	margin-left: 10px;
+	margin-top:10px;
+	margin-bottom: 30px;
+	font-size: 30px;
+	font-family: karla;
+	color: #fff;
+}
+
+h1{
+	font-family: cabin;
+}
+
+
+.profile a{
+	display: none;
+	color: black;
+	font-weight: bold;
+	padding-left: 7px;
+	font-size: 14px;
+}
+
+a{
+	color: #fff;
+}
+
+
+.menu .nav{
+	padding: 0;
+}
+
+.menu .nav > li > a{
+	color: #fff;
+	cursor: default;
+}
+
+.menu .nav > li > a:hover,
+.menu .nav > li > a:focus{
+	background: transparent;
+	color: #fff; /* default 2E5483 */
+}
+
+/* log in and sign up button */
+.log {
+	-webkit-transform: translateY(-50%);
+	transform: translateY(-50%);
+	/* -webkit-transition: border-color 0.4s, color 0.4s;
+	transition: border-color 0.4s, color 0.4s; */
+	width: 100px;
+}
+
+
+.button{
+	background: #000;
+	border-width: 5px;
+	color: #fff;
+	border-color: #fff;
+}
+
+.one{
+	padding: 14px 94px;
+}
+
+.two{
+	padding: 14px 75px;
+}
+
+.three{
+	padding: 10px 41px;
+}
+
+.button:hover{
+	background: #fff;
+	color: #000;
+	border-color: #fff;
+}
+
+.menu h5 {
+	padding-top: 10px;
+	padding-bottom: 4px;
+}
+
+/* controls the add property button*/
+.btn{
+	border-radius: 0;
+	-webkit-transition: border-color 0.4s, color 0.4s;
+	transition: border-color 0.4s, color 0.4s;
+}
+
+.btn-primary{
+	padding: 8px 22px;
+	background: #0b5345;
+	border-width: 2px;
+	color: #fff;
+	border-color: #0b5345;
+  border-radius: 5%;
+}
+
+.btn-primary:hover,
+.btn-primary:focus{
+	background: #117864;
+	color: #fff;
+	border-color: #117864;
+}
+
+
+/*****************
+affects the space curb
+*****************/
+
+/*the below affects the spave curb in the expanding nav, and we made it to not show any underline when hovered on*/
+a:hover,
+a:focus{
+	text-decoration: none;
+	color: #fff;
+}
+
+/*****************
+ending of nav bar in header
+*****************/
+
+/*****************
+section
+*****************/
+
+.dropdown {
+	position: relative;
+	color: red
+}
+
+/* beginning of the space curb header */
+.fa-map-marker {
+	color: #0b5345; /*     color      */
+}
+
+.fa-bars {
+	color: #0b5345; /*       color       */
+}
+
+.fa-close{
+	color: #fff;
+}
+
+.space {
+	color: #0b5345;  /*       color       */
+}
+
+.words {
+	color: #333;
+}
+
+/*****************************************
+******************************************
+beginning of changing words
+******************************************
+*****************************************/
+
+.change-text {
+
+}
+
+.text {
+  color: #333;
+}
+
+.profile-photo{
+  max-width: 35px;
+	height: 35px;
+  border-radius: 100%;
+} /* border-radius makes the image a circle instead of a square,
+    margin is responsible for positioning of the picture */
+
+
+/*****************************************
+ending of changing words
+*****************************************/
+
+
+/*ending of the space curb*/
+
+/***************************************
+search bar        EDIT
+***************************************/
+
+.search {
+  display: inline-table;
+	margin-top: 20px;
+	width: 55%;
+	min-width: 250px;
+}
+
+.search__input {
+  border: 0;
+  outline: 0;
+	width: 80%;
+  height: 49px;
+	color: black;
+	font-weight: bold;
+	margin-top: 0px;
+	cursor: auto;
+  font-size: 17px;
+  padding: 0 10px;
+	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2);
+}
+
+.search__button {
+  color: #fff;
+  background-color: #0B5345;
+  width: 50px;
+  height: 49px;
+  text-align: center;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  outline: 0;
+	margin: 0;
+	box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2);
+}
+.search button {
+  border-radius: 3px;
+  padding: 6px;
+}
+
+.search button:hover {
+  -webkit-transform: translateY(-1px);
+      -ms-transform: translateY(-1px);
+          transform: translateY(-1px);
+}
+
+.dropdown-menu > li > a:hover {
+    text-decoration: none;
+    color: #fff;
+    background-color: #0B5345;
+}
+
+/******************************
+ending of search bar
+******************************/
+
+
+.body{
+	text-align: center;
+/*	background: url('../img/bg.jpg');*/ /* controls the image on home page */
+	background-size: cover;
+	color: #fff;
+	min-height: 400px;/* for the footer to not disturb the page */
+/*  max-height: 800px; */
+  padding: 0 10px;
+}
+
+p{
+	color: #fff;
+	font-size: 15px;
+}
+
+.body .container{
+	margin-top: 8%;
+}
+
+/*footer*/
+
+  .main-footer{
+    padding-bottom: 10px;
+  }
+
+  .foot{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-around;
+    align-content: center;
+    text-decoration: none;
+    list-style: none;
+    font-size: 15px;
+    padding-bottom: 6px;
+  }
+
+	.foot2{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: flex-end;
+    justify-content: flex-end;
+    align-content: center;
+    text-decoration: none;
+    list-style: none;
+    font-size: 15px;
+    padding: 0 30px 0;
+  }
+
+	footer{
+		width: cover;
+	}
+
+  footer > div > span > a {
+  	color: black;
+		padding-left: 25px;
+  }
+
+	footer > div > span > a:hover {
+  	color: black;
+  }
+/* footer ending */
+
+/****************************
+form
+****************************/
+
+.tab-pane p{
+	color: #000;
+}
+
+.bak{
+	margin-bottom: 20px;
+}
+
+.bak a{
+	color: #000;
+	font-size: 14px
+}
+
+.forge{
+	margin-bottom: 20px;
+}
+
+.forge a{
+	color: #000;
+}
+
+.forge a:hover{
+	color: grey;
+}
+
+.modal-header div{
+	font-size: 15px;
+	color: white;
+}
+
+.modal-header{
+  height: 60px;
+  width: 100%;
+  font-size: 18px;
+  background: #0B5345;
+  color: white;
+  line-height: 150%;
+  border-radius: 3px 3px 0 0;
+  box-shadow: 0 2px 5px 1px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content{
+	margin: 70px auto;
+}
+
+.modal-content{
+	max-width: 450px;
+}
+
+h1, .content form input::-webkit-input-placeholder, .content form button {
+  -webkit-transition: all 0.3s ease-in-out;
+          transition: all 0.3s ease-in-out;
+}
+
+.content form input {
+  margin: 20px 12px;
+  width: 90%;
+  display: block;
+  border: none;
+  padding: 0 0 10px;
+  border-bottom: solid 1px #0B5345;
+  -webkit-transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+          transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+  background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 96%, #0B5345 4%);
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 96%, #0B5345 4%);
+  background-position: -100% 0;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  color: #0B5345;
+}
+.content form input:focus, .content form input:valid {
+  box-shadow: none;
+  outline: none;
+  background-position: 0 0;
+}
+.content form input:focus::-webkit-input-placeholder, .content form input:valid::-webkit-input-placeholder {
+  color: #0B5345;
+  font-size: 11px;
+  -webkit-transform: translateY(-20px);
+          transform: translateY(-20px);
+  visibility: visible !important;
+}
+
+.content form button {
+  border: none;
+  background: #0B5345;
+  cursor: pointer;
+  border-radius: 3px;
+  padding: 6px;
+  width: 200px;
+  color: white;
+	margin-top: 25px;
+	margin-bottom: 25px;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2);
+}
+.content form button:hover {
+  -webkit-transform: translateY(-3px);
+      -ms-transform: translateY(-3px);
+          transform: translateY(-3px);
+  box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.2);
+}
+
+
+.division {
+    float: none;
+    margin: 0 auto 18px;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    width: 100%;
+}
+.division .line {
+    border-top: 1px solid #DFDFDF;
+    position: absolute;
+    top: 10px;
+    width: 34%;
+}
+.division .line.l {
+    left: 0;
+}
+.division .line.r {
+    right: 0;
+}
+.division span {
+    color: #424242;
+    font-size: 17px;
+}
+
+.box .social {
+    float: none;
+    margin: 0 auto 20px;
+    text-align: center;
+}
+
+.social .circle{
+    background-color: #EEEEEE;
+    color: #FFFFFF;
+    border-radius: 100px;
+    display: inline-block;
+    margin: 0 17px 15px;
+    padding: 15px;
+}
+.social .circle .fa{
+    font-size: 16px;
+}
+.social .facebook{
+    background-color: #455CA8;
+    color: #FFFFFF;
+}
+.social .google{
+    background-color: #F74933;
+}
+
+.facebook:hover{
+    background-color: #6E83CD;
+}
+.google:hover{
+    background-color: #FF7566;
+}
+
+/****** sumit and back button ******/
+
+.linebut{
+	display: inline-block;
+}
+
+.linebut button{
+	width: 100px;
+	margin: 10px;
+	margin-top: 40px;
+}
+
+/****** sumit and back button ending ******/
+
+/*************************************
+**************************************
+**************************************
+add property popup
+**************************************
+**************************************
+*************************************/
+
+.showboy{
+	display: flex;
+	flex-direction: column;
+}
+
+button{
+	width: 170px;
+	height: 40px;
+	margin: 10px auto;
+	background-color: #0B5345;
+	color: #fff;
+	border-color: inherit;
+	border: 5px;
+	border-radius: 5px;
+}
+
+button:hover{
+	background-color: #0E6655;
+}
+
+ul{
+	text-decoration: none;
+}
+
+/*************************************
+**************************************
+ending of add property popup
+**************************************
+*************************************/
+
+/****************************************
+photo upload
+****************************************/
+.content:active #img-result {
+  margin-top: 2px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.content #img-result {
+  cursor: pointer;
+  margin: 0;
+  position: relative;
+  background: #1abc9c;
+  background-size: cover;
+  background-position: center;
+  display: block;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+  color: rgba(0, 0, 0, 0);
+  -webkit-transition: box-shadow 0.3s, margin 0.3s, background-image 1.5s;
+  transition: box-shadow 0.3s, margin 0.3s, background-image 1.5s;
+}
+
+.content #img-result.no-image:before {
+  font-family: 'FontAwesome';
+  content: "\f030";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  color: #fff;
+  font-size: 48px;
+  opacity: .8;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  text-shadow: 0 0px 5px rgba(0, 0, 0, 0.4);
+}
+/******************************
+*******************************
+*******************************
+pop up image upload
+*******************************
+*******************************
+******************************/
+
+
+
+/****** margin top for image ******/
+
+.picture-container{
+	margin-top: 30px;
+}
+
+/****** margin top for image ending ******/
+
+.picture-container {
+  position: relative;
+  cursor: pointer;
+  text-align: center;
+}
+
+.picture {
+  width: 106px;
+  height: 106px;
+  background-color: #999999;
+  border: 4px solid #CCCCCC;
+  color: #FFFFFF;
+  border-radius: 50%;
+  margin: 5px auto;
+  overflow: hidden;
+  transition: all 0.2s;
+  -webkit-transition: all 0.2s;
+}
+
+.picture-src {
+    width: 100%;
+}
+
+.picture:hover {
+  border-color: #117864;
+}
+
+.picture input[type="file"] {
+      cursor: pointer;
+      display: block;
+      height: 100%;
+      left: 0;
+      opacity: 0 !important;
+      position: absolute;
+      top: 0;
+      width: 100%;
+}
+
+
+
+/******************************
+pop up image upload ending
+******************************/
+
+
+@media screen and (max-width: 50em) {
+	.inputfile-6 + label strong {
+		display: block;
+	}
+}
+
+/***********************************
+************************************
+************************************
+ending of image upload
+************************************
+************************************
+***********************************/
+
+/****************************
+form ending
+****************************/
+
+/**************
+media querry
+**************/
+@media screen and (min-width: 768px){
+
+	.body h1,
+	.body .h1 {
+		font-size: 60px;
+	}
+
+	h4{
+		color: black;
+		font-size: 17px;
+	}
+
+	p{
+		color: #fff;
+		font-size: 18px;
+	}
+
+	.foot{
+    font-size: 17px;
+  }
+
+  .foot2{
+    list-style: none;
+    font-size: 17px;
+    padding: 0 100px 0;
+  }
+
+	.text {
+	  color: #333;
+	  font-size: 18px;
+	}
+
+	.profile a{
+		display: inline;
+		color: black;
+		font-weight: bold;
+		padding-left: 7px;
+		font-size: 14px;
+}
 }
