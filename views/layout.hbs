@@ -34,18 +34,33 @@
         </ul>
       </nav>
     <div class="dropdown">
-      <img src="assets/img/default-avatar.png" alt="photograph of potential user"  class="profile-photo dropdown-toggle" data-toggle="dropdown">
+      {{#if user.profilePhoto}}
+        <img src="{{user.profilePhoto}}" alt="photograph of potential user"  class="profile-photo dropdown-toggle" data-toggle="dropdown">
+      {{else}}
+        <img src="assets/img/default-avatar.png" alt="photograph of potential user"  class="profile-photo dropdown-toggle" data-toggle="dropdown">
+      {{/if}}
 
       <ul class="dropdown-menu dropdown-menu-right">
             <li role="presentation"><a class="" data-toggle="modal" data-target="#myModal" role="menuitem" tabindex="-1" href="#">Add a Property</a></li>
 
-            <li role="presentation"><a class="" data-toggle="modal" data-target="#myModa2" role="menuitem" tabindex="-1" href="#">Sign in</a></li>
+            {{#if user}}
+              <li role="presentation"><a class="" data-toggle="modal" data-target="#myModa2" role="menuitem" tabindex="-1" href="#">Edit Profile</a></li>
+
+              <li role="presentation"><a class="" data-toggle="modal" data-target="#myModa2" role="menuitem" tabindex="-1" href="#">View Your Properties</a></li>
+            {{else}}
+              <li role="presentation"><a class="" data-toggle="modal" data-target="#myModa2" role="menuitem" tabindex="-1" href="#">Sign in</a></li>
+            {{/if}}
+
+
 
             {{!--<li role="presentation"><a class="" data-toggle="modal" data-target="#myModal" role="menuitem" tabindex="-1" href="#">Sign up here</a></li>--}}
 
             <li role="presentation" class="divider"></li>
-
-            <li role="presentation"><a class="" data-toggle="modal" data-target="#myModal" role="menuitem" tabindex="-1" href="#">Sign up </a></li>
+            {{#if user}}
+              <li role="presentation"><a class="" role="menuitem" tabindex="-1" href="/users/signOut/signOutOfYourAccount">Logout</a></li>
+            {{else}}
+              <li role="presentation"><a class="" data-toggle="modal" data-target="#myModal" role="menuitem" tabindex="-1" href="#">Sign up </a></li>
+            {{/if}}
       </ul>
     </div>
 
