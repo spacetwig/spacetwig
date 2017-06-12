@@ -1,9 +1,12 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
+const {useremailConf} = require('../routesMiddleware/userEmailConfirm_Middleware');
+const {usersignIn} = require('../routesMiddleware/userSignIn_Middleware');
+
+
+router.get('/confirmation/userconf/:randomstring', useremailConf);
+
+router.post('/signIn/signInToYourAccount', usersignIn);
 
 module.exports = router;

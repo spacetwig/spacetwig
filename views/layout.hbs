@@ -50,8 +50,30 @@
     </div>
 
     </header><!--/.main-header-->
+    {{#if errors}}
+      {{#each errors}}
+        <p class="alert alert-danger">{{msg}}</p>
+      {{/each}}
+    {{/if}}
+
+    {{#if error}}
+      <p class="alert alert-danger">{{error}}</p>
+    {{/if}}
+
+    {{#if success_msg}}
+      <p class="alert alert-success">{{success_msg}}</p>
+    {{/if}}
+
+    {{#if error_msg}}
+      <p class="alert alert-danger">{{error_msg}}</p>
+    {{/if}}
+
+    {{#if user.confirmed}}
+      <p class="alert alert-success">{{user.firstName}}</p>
+    {{/if}}
 
     {{{body}}}
+
 
     <!-- Modal Core -->
   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -74,7 +96,7 @@
                 <div class="content">
                   <div class="tab-content text-center">
                     <div class="tab-pane active" id="signup">
-                      <form>
+                      <form method="post" action='/signupnewuser' enctype="multipart/form-data" >
                         <div class="social">
                           <a id="google_login" class="circle google" href="/auth/google_oauth2">
                               <i class="fa fa-google-plus fa-fw"></i>
@@ -88,10 +110,11 @@
                               <span>or</span>
                             <div class="line r"></div>
                         </div>
-                        <input placeholder="Username" type="text" required="true">
-                        <input placeholder="Email" type="email" required="">
+                        <input placeholder="first name" type="text" required="true" name="firstName">
+                        <input placeholder="last name" type="text" required="true" name="lastName">
+                        <input placeholder="email"  required="" name="email">
                         <input placeholder="Password" type="password" minlength="6" id="password" name="password" required="required">
-                        <input placeholder="Confirm Password" type="password" minlength="6" id="compare_password" name="comparepassword" compareTo="password" required="required">
+                        <input placeholder="Confirm Password" type="password" minlength="6" id="compare_password" required="required" name="confirmPassword">
                         <button href="#photo" data-toggle="tab">Next</button>
                     </div>
                     <div class="tab-pane" id="photo">
@@ -105,7 +128,7 @@
                       </div>
 
                       <div class="linebut">
-                      <button href="#signup" data-toggle="tab">Back</button><button>Submit</button>
+                      <button href="#signup" data-toggle="tab">Back</button><button type="submit">Submit</button>
                       </div>
 
                       </form>
@@ -139,7 +162,7 @@
               <div class="content">
                 <div class="tab-content text-center">
                   <div class="tab-pane active" id="signin">
-                    <form>
+                    <form method="post" action="/users/signIn/signInToYourAccount">
                       <div class="social">
                         <a id="google_login" class="circle google" href="/auth/google_oauth2">
                             <i class="fa fa-google-plus fa-fw"></i>
@@ -153,10 +176,10 @@
                             <span>or</span>
                           <div class="line r"></div>
                       </div>
-                      <input placeholder="Email" type="email" required="">
+                      <input placeholder="Email" type="email" name="email" required="required">
                       <input placeholder="Password" type="password" id="password" name="password" required="required">
                       <div class="linebutt">
-                        <button>Sign in</button>
+                        <button type="submit">Sign in</button>
                       </div>
                       <div class="forge">
                         <a href="#forgot" data-toggle="tab">Forgot password?</a>
