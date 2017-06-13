@@ -10,21 +10,60 @@ const session = require('express-session');
 const cloudinary = require('cloudinary');
 const multer = require('multer');
 const flash = require('connect-flash');
-const {Strategy} = require('passport-facebook');
+const FacebookStrategy = require('passport-facebook').Strategy;
 const expressValidator = require('express-validator');
 const MongoStore = require('connect-mongo')(session);
 
 require('dotenv').config();
 
 const {signUpMidware} = require('./routesMiddleware/signUp_Middleware');
+const User = require('./models/user');
+
+function generateOrFindUser(accessToken, refreshToken, profile, done){
+  if(profile.emails[0]) {
+    User.findOneAndUpdate(
+      { email: profile.emails[0].value },
+      {
+        firstName: profile.displayName || profile.username,
+        email: profile.emails[0].value,
+        profilePhoto: profile.photos[0].value,
+        confirmed: 'yup!',
+        socialUser: 'yup!'
+      },
+      {
+        upsert: true
+      },
+    done
+  );
+  } else {
+    var noEmailError = new Error("Your email privacy settings prevent you from signing in.");
+    done(noEmailError, null);
+  }
+}
+
+passport.use(new FacebookStrategy({
+    clientID: process.env.FACEBOOK_CLIENT_ID,
+    clientSecret: process.env.FACEBOOK_APP_SECRET,
+    callbackURL: "http://localhost:3000/auth/facebook/return",
+    profileFields: ['id', 'displayName', 'photos', 'email']
+},
+  generateOrFindUser)
+);
+
+passport.serializeUser(function(user, done){
+  done(null, user._id);
+});
+passport.deserializeUser(function(userId, done){
+  User.findById(userId, done);
+});
+
 
 mongoose.Promise = global.Promise;
-
 const db = mongoose.connection;
-
 
 const index = require('./routes/index');
 const users = require('./routes/users');
+const auth = require('./routes/auth');
 
 const app = express();
 
@@ -88,6 +127,7 @@ app.use(expressValidator({
 
 app.use('/', index);
 app.use('/users', users);
+app.use('/auth', auth);
 
 const upload = multer({ dest: './public/images/'});
 //photoUpload routes

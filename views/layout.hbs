@@ -23,7 +23,7 @@
       <!-- Offsite navigation -->
       <nav class="menu">
         <a href="#" class="close"> <i class="fa fa-close"></i></a>
-        <h3> <a href="index.html">spacelist</a> </h3>
+        <h3> <a href="index.html">spacetwig</a> </h3>
         <h5><a data-scroll data-toggle="modal" data-target="#myModa3" class="btn button two">Add Property</a></h5>
         <ul class="nav">
           <li class="cl-effect-1"><a data-scroll href="contactus.html">Contact us</a></li>
@@ -65,6 +65,7 @@
     </div>
 
     </header><!--/.main-header-->
+
     {{#if errors}}
       {{#each errors}}
         <p class="alert alert-danger">{{msg}}</p>
@@ -82,10 +83,7 @@
     {{#if error_msg}}
       <p class="alert alert-danger">{{error_msg}}</p>
     {{/if}}
-
-    {{#if user.confirmed}}
-      <p class="alert alert-success">{{user.firstName}}</p>
-    {{/if}}
+  </div>
 
     {{{body}}}
 
@@ -113,10 +111,10 @@
                     <div class="tab-pane active" id="signup">
                       <form method="post" action='/signupnewuser' enctype="multipart/form-data" >
                         <div class="social">
-                          <a id="google_login" class="circle google" href="/auth/google_oauth2">
+                          <a id="google_login" class="circle google" href="/auth/login/google_oauth2">
                               <i class="fa fa-google-plus fa-fw"></i>
                           </a>
-                          <a id="facebook_login" class="circle facebook" href="/auth/facebook">
+                          <a id="facebook_login" class="circle facebook" href="/auth/login/facebook">
                               <i class="fa fa-facebook fa-fw"></i>
                           </a>
                         </div>
@@ -354,7 +352,7 @@
     <!-- Footer start -->
   	<footer class="main-footer">
   		<div class="foot2">
-  			<span>&copy; spacelist 2017</span>
+  			<span>&copy; spacetwig 2017</span>
   		</div>
   	</footer>
   		<!-- Footer end  -->

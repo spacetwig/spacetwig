@@ -42,6 +42,11 @@ const UserSchema = new Schema({
     unique: false,
     required: false
   },
+  socialUser: {
+    type: String,
+    unique: false,
+    required: false
+  },
   userOccupation: {
     type: String,
     required: false,
