@@ -11,6 +11,7 @@ const cloudinary = require('cloudinary');
 const multer = require('multer');
 const flash = require('connect-flash');
 const FacebookStrategy = require('passport-facebook').Strategy;
+const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const expressValidator = require('express-validator');
 const MongoStore = require('connect-mongo')(session);
 
@@ -47,6 +48,15 @@ passport.use(new FacebookStrategy({
     callbackURL: "http://localhost:3000/auth/facebook/return",
     profileFields: ['id', 'displayName', 'photos', 'email']
 },
+  generateOrFindUser)
+);
+
+passport.use(new GoogleStrategy({
+    clientID: process.env.GOOGLE_CLIENT_ID,
+    clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    callbackURL: "http://localhost:3000/auth/google/return",
+    profileFields: ['id', 'displayName', 'photos', 'email']
+  },
   generateOrFindUser)
 );
 

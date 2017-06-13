@@ -13,5 +13,18 @@ router.get('/facebook/return',
     res.redirect('/');
   });
 
+router.get('/login/google',
+  passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/userinfo.email', 'https://www.googleapis.com/auth/userinfo.profile',
+  'https://www.googleapis.com/auth/plus.login',
+  'https://www.googleapis.com/auth/plus.me'] }));
+
+//GET /auth/google/return
+router.get('/google/return',
+  passport.authenticate('google', { failureRedirect: '/jkhhjvjhbvjh' }),
+  function(req, res) {
+    // Successful authentication, redirect home.
+    res.redirect('/');
+  });
+
 
 module.exports = router;
