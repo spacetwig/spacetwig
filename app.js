@@ -74,6 +74,7 @@ const db = mongoose.connection;
 const index = require('./routes/index');
 const users = require('./routes/users');
 const auth = require('./routes/auth');
+const property = require('./routes/property');
 
 const app = express();
 
@@ -138,6 +139,7 @@ app.use(expressValidator({
 app.use('/', index);
 app.use('/users', users);
 app.use('/auth', auth);
+app.use('/property', property);
 
 const upload = multer({ dest: './public/images/'});
 //photoUpload routes
